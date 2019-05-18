@@ -1,0 +1,55 @@
+.keyboard {
+  display: flex;
+}
+.keyboard .left,
+.keyboard .right {
+  display: flex;
+}
+.keyboard .left .block,
+.keyboard .right .block {
+  outline: 1px solid #e2e9e9;
+  text-align: center;
+  line-height: 3rem;
+  background: #f6f8fc;
+  color: #999b9d;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.keyboard .left .block.square,
+.keyboard .right .block.square {
+  flex-grow: 1;
+}
+.keyboard .left .block.rectangle,
+.keyboard .right .block.rectangle {
+  flex-grow: 2;
+}
+.keyboard .left .block:hover,
+.keyboard .right .block:hover {
+  background: #fb752e;
+  color: #fff4ee;
+}
+.keyboard .left {
+  flex: 3;
+  flex-wrap: wrap;
+}
+.keyboard .left .block:first-child {
+  color: #e27138;
+}
+.keyboard .left .square {
+  flex-basis: 33%;
+}
+.keyboard .left .rectangle {
+  flex-basis: 66%;
+}
+.keyboard .right {
+  flex: 1;
+  flex-direction: column;
+}
+.keyboard .right .square {
+  flex-basis: 75px;
+}
+.keyboard .right .rectangle {
+  flex-basis: 150px;
+}

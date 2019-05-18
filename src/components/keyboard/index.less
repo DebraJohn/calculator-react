@@ -1,0 +1,51 @@
+.keyboard {
+  display: flex;
+  .left,
+  .right {
+    display: flex;
+    .block {
+      outline: 1px solid #e2e9e9;
+      text-align: center;
+      line-height: 3rem;
+      background: #f6f8fc;
+      color: #999b9d;
+      font-size: 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &.square {
+        flex-grow: 1;
+      }
+      &.rectangle {
+        flex-grow: 2;
+      }
+      &:hover {
+        background: #fb752e;
+        color: #fff4ee;
+      }
+    }
+  }
+  .left {
+    flex: 3;
+    flex-wrap: wrap;
+    .block:first-child {
+      color: #e27138;
+    }
+    .square {
+      flex-basis: 33%;
+    }
+    .rectangle {
+      flex-basis: 66%;
+    }
+  }
+  .right {
+    flex: 1;
+    flex-direction: column;
+    .square {
+      flex-basis: 75px;
+    }
+    .rectangle {
+      flex-basis: 150px;
+    }
+  }
+}
