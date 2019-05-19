@@ -3,26 +3,28 @@
   .left,
   .right {
     display: flex;
-    .block {
-      outline: 1px solid #e2e9e9;
-      text-align: center;
-      line-height: 3rem;
-      background: #f6f8fc;
-      color: #999b9d;
-      font-size: 1.5rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      &.square {
-        flex-grow: 1;
-      }
-      &.rectangle {
-        flex-grow: 2;
-      }
-      &:hover {
-        background: #fb752e;
-        color: #fff4ee;
-      }
+    
+  }
+  .block {
+    outline: 1px solid #e2e9e9;
+    text-align: center;
+    line-height: 3rem;
+    background: #f6f8fc;
+    color: #999b9d;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &.square {
+      flex-grow: 1;
+    }
+    &.rectangle {
+      flex-grow: 2;
+    }
+    &.active,
+    &:hover {
+      background: #fb752e;
+      color: #fff4ee !important;
     }
   }
   .left {

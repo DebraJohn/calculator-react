@@ -5,8 +5,7 @@
 .keyboard .right {
   display: flex;
 }
-.keyboard .left .block,
-.keyboard .right .block {
+.keyboard .block {
   outline: 1px solid #e2e9e9;
   text-align: center;
   line-height: 3rem;
@@ -17,18 +16,16 @@
   justify-content: center;
   align-items: center;
 }
-.keyboard .left .block.square,
-.keyboard .right .block.square {
+.keyboard .block.square {
   flex-grow: 1;
 }
-.keyboard .left .block.rectangle,
-.keyboard .right .block.rectangle {
+.keyboard .block.rectangle {
   flex-grow: 2;
 }
-.keyboard .left .block:hover,
-.keyboard .right .block:hover {
+.keyboard .block.active,
+.keyboard .block:hover {
   background: #fb752e;
-  color: #fff4ee;
+  color: #fff4ee !important;
 }
 .keyboard .left {
   flex: 3;
