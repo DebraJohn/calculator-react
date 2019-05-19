@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/calculator-react/build/static/css/main.9a5ce23f.chunk.css",
-    "main.js": "/calculator-react/build/static/js/main.1b09b3e5.chunk.js",
-    "main.js.map": "/calculator-react/build/static/js/main.1b09b3e5.chunk.js.map",
+    "main.js": "/calculator-react/build/static/js/main.1e98201e.chunk.js",
+    "main.js.map": "/calculator-react/build/static/js/main.1e98201e.chunk.js.map",
     "runtime~main.js": "/calculator-react/build/static/js/runtime~main.ae6e74cb.js",
     "runtime~main.js.map": "/calculator-react/build/static/js/runtime~main.ae6e74cb.js.map",
     "static/js/2.73301c49.chunk.js": "/calculator-react/build/static/js/2.73301c49.chunk.js",
     "static/js/2.73301c49.chunk.js.map": "/calculator-react/build/static/js/2.73301c49.chunk.js.map",
     "index.html": "/calculator-react/build/index.html",
-    "precache-manifest.4325725d94c3fbe2eeed27e1b4229a29.js": "/calculator-react/build/precache-manifest.4325725d94c3fbe2eeed27e1b4229a29.js",
+    "precache-manifest.df515b9af0fae22b0bcd71a392372651.js": "/calculator-react/build/precache-manifest.df515b9af0fae22b0bcd71a392372651.js",
     "service-worker.js": "/calculator-react/build/service-worker.js",
     "static/css/main.9a5ce23f.chunk.css.map": "/calculator-react/build/static/css/main.9a5ce23f.chunk.css.map"
   }

@@ -7,7 +7,7 @@ export default class Block extends React.Component {
     return (
       <div
         className={`block ${shape}${active ? ' active' : ''}`}
-        onTouchStart={() => this.handleValue()}
+        onClick={() => this.handleValue()}
       >
         {value}
       </div>
