@@ -1,5 +1,5 @@
 ### Preview this Project
-[Project Preview](https://debrajohn.github.io/calculator-react/build/index.html).
+[Project Preview](https://debrajohn.github.io/calculator-react/build).
 
 ## Run Project
 
