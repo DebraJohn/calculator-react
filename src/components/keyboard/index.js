@@ -4,30 +4,33 @@ import './index.css';
 
 export default class Keyboard extends React.Component {
   render() {
+    const leftBlock = [
+      'C',
+      'DEL',
+      '/',
+      '7',
+      '8',
+      '9',
+      '4',
+      '5',
+      '6',
+      '1',
+      '2',
+      '3',
+      '0',
+      '.'
+    ];
+    const rightBlock = ['*', '-', '+', '='];
+    const leftItems = leftBlock.map((i, index) => (
+      <Block key={index} value={i} shape={i === '0' ? 'rectangle' : 'square'} />
+    ));
+    const rightItems = rightBlock.map((i, index) => (
+      <Block key={index} value={i} shape={i === '=' ? 'rectangle' : 'square'} />
+    ));
     return (
       <div className="keyboard">
-        <div className="left">
-          <Block value="C" shape="square" fn="clear" />
-          <Block value="DEL" shape="square" fn="backsapce" />
-          <Block value="/" shape="square" fn="devide"/>
-          <Block value="7" shape="square" />
-          <Block value="8" shape="square" />
-          <Block value="9" shape="square" />
-          <Block value="4" shape="square" />
-          <Block value="5" shape="square" />
-          <Block value="6" shape="square" />
-          <Block value="1" shape="square" />
-          <Block value="2" shape="square" />
-          <Block value="3" shape="square" />
-          <Block value="0" shape="rectangle" />
-          <Block value="." shape="square" />
-        </div>
-        <div className="right">
-          <Block value="*" shape="square" fn="multiply"/>
-          <Block value="-" shape="square" fn="minus"/>
-          <Block value="+" shape="square" fn="add"/>
-          <Block value="=" shape="rectangle" fn="equal"/>
-        </div>
+        <div className="left">{leftItems}</div>
+        <div className="right">{rightItems}</div>
       </div>
     );
   }
