@@ -49,8 +49,22 @@ export default class Screen extends React.Component {
         this.handleNum1(num1, value);
         break;
       case '-':
-        this.fn = 'minus';
-        this.handleNum1(num1, value);
+        let t = value + val;
+        if (this.valFlag) {
+          this.setState({
+            value: val
+          });
+          t = val;
+          this.valFlag = false;
+        }
+        if (t.length === 1 || !isNaN(Number(t))) {
+          this.setState({
+            value: t
+          });
+        } else {
+          this.fn = 'minus';
+          this.handleNum1(num1, value);
+        }
         break;
       case '+':
         this.fn = 'add';
@@ -68,6 +82,7 @@ export default class Screen extends React.Component {
           secVal = '';
           this.valFlag = false;
         }
+        if (isNaN(Number(secVal + val))) return;
         this.setState({
           value: secVal + val
         });
@@ -110,6 +125,6 @@ export default class Screen extends React.Component {
         num1: 0
       });
     }
-    this.fn = ''
+    this.fn = '';
   }
 }
