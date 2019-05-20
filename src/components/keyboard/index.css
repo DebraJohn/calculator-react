@@ -1,4 +1,5 @@
 .keyboard {
+  flex: 2;
   display: flex;
 }
 .keyboard .left,
@@ -45,8 +46,8 @@
   flex-direction: column;
 }
 .keyboard .right .square {
-  flex-basis: 75px;
+  flex-basis: 20%;
 }
 .keyboard .right .rectangle {
-  flex-basis: 150px;
+  flex-basis: 40%;
 }

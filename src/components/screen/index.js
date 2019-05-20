@@ -6,7 +6,7 @@ import './index.css';
 export default class Screen extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { value: '', num1: 0 };
+    this.state = { value: '' };
   }
   render() {
     const { value } = this.state;
@@ -26,105 +26,62 @@ export default class Screen extends React.Component {
   }
 
   handleRecieved(val) {
-    const { value, num1 } = this.state;
+    const { value } = this.state;
     switch (val) {
       case 'C':
         this.setState({
-          value: '',
-          num1: 0
+          value: ''
         });
         break;
       case 'DEL':
-        const newVal = String(value).substr(0, String(value).length - 1);
         this.setState({
-          value: newVal
+          value: String(value).substr(0, String(value).length - 1)
         });
         break;
+      case '=':
+        try {
+          this.valFlag = true;
+          this.setState({
+            value: eval(value)
+          });
+        } catch {
+          this.valFlag = false;
+          return;
+        }
+        break;
       case '/':
-        this.fn = 'divide';
-        this.handleNum1(num1, value);
-        break;
       case '*':
-        this.fn = 'multiply';
-        this.handleNum1(num1, value);
-        break;
       case '-':
-        let t = value + val;
+      case '+':
+        this.valFlag = false;
+        try {
+          eval(value);
+        } catch {
+          return;
+        }
+        this.setState({
+          value: value + val
+        });
+        break;
+      default:
+        if (val === '.') {
+          try {
+            eval(value + val);
+          } catch {
+            return;
+          }
+        }
         if (this.valFlag) {
           this.setState({
             value: val
           });
-          t = val;
           this.valFlag = false;
-        }
-        if (t.length === 1 || !isNaN(Number(t))) {
-          this.setState({
-            value: t
-          });
         } else {
-          this.fn = 'minus';
-          this.handleNum1(num1, value);
-        }
-        break;
-      case '+':
-        this.fn = 'add';
-        this.handleNum1(num1, value);
-        break;
-      case '=':
-        this.handleResult(this.fn);
-        break;
-      default:
-        let secVal = value;
-        if (this.valFlag) {
           this.setState({
-            value: ''
+            value: value + val
           });
-          secVal = '';
-          this.valFlag = false;
         }
-        if (isNaN(Number(secVal + val))) return;
-        this.setState({
-          value: secVal + val
-        });
         break;
     }
-  }
-  handleNum1(num1, value) {
-    if (!num1) {
-      this.setState({
-        num1: Number(value)
-      });
-      this.valFlag = true;
-    } else {
-      !this.valFlag && this.handleResult(this.fn);
-    }
-  }
-
-  handleResult(fn) {
-    if (!fn) return;
-    this.valFlag = true;
-    const { num1, value } = this.state;
-    if (fn === 'add') {
-      this.setState({
-        value: num1 + Number(value),
-        num1: 0
-      });
-    } else if (fn === 'minus') {
-      this.setState({
-        value: num1 - Number(value),
-        num1: 0
-      });
-    } else if (fn === 'multiply') {
-      this.setState({
-        value: num1 * Number(value),
-        num1: 0
-      });
-    } else if (fn === 'divide') {
-      this.setState({
-        value: num1 / Number(value),
-        num1: 0
-      });
-    }
-    this.fn = '';
   }
 }
