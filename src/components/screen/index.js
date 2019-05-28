@@ -27,23 +27,17 @@ export default class Screen extends React.Component {
 
   handleRecieved(val) {
     const { value } = this.state;
+    let result = '';
     switch (val) {
       case 'C':
-        this.setState({
-          value: ''
-        });
         break;
       case 'DEL':
-        this.setState({
-          value: String(value).substr(0, String(value).length - 1)
-        });
+        result = String(value).substr(0, String(value).length - 1);
         break;
       case '=':
         try {
+          result = eval(value);
           this.valFlag = true;
-          this.setState({
-            value: eval(value)
-          });
         } catch {
           this.valFlag = false;
           return;
@@ -59,9 +53,7 @@ export default class Screen extends React.Component {
         } catch {
           return;
         }
-        this.setState({
-          value: value + val
-        });
+        result = value + val;
         break;
       default:
         if (val === '.') {
@@ -72,16 +64,13 @@ export default class Screen extends React.Component {
           }
         }
         if (this.valFlag) {
-          this.setState({
-            value: val
-          });
+          result = val;
           this.valFlag = false;
         } else {
-          this.setState({
-            value: value + val
-          });
+          result = value + val;
         }
         break;
     }
+    this.setState({ value: result });
   }
 }
